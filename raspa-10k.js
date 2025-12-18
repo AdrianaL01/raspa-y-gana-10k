@@ -50,8 +50,8 @@ const premios10kInicial = [
 
 
 // Elegir premio aleatorio (una sola vez)
-const indexPremio = Math.floor(Math.random() * premios5kInicial.length);
-const premioAsignado = premios5kInicial[indexPremio];
+const indexPremio = Math.floor(Math.random() * premios10kInicial.length);
+const premioAsignado = premios10kInicial[indexPremio];
 premioImg.src = premioAsignado.imagen;
 premioImg.style.visibility = "hidden";
 
@@ -162,5 +162,6 @@ function revelarPremio(){
 
   setTimeout(()=>{ ctx.clearRect(0,0,canvas.width,canvas.height); },400);
 }
+
 
 
