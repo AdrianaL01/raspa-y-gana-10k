@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f7f3f1;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.contenedor {
+  position: relative;
+  width: 95vw;        /* 95% del ancho del celular */
+  max-width: 420px;  /* límite en computador */
+  margin: auto;
+}
+
+
+.premio {
+  width: 100%;
+  display: block;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#mensaje {
+  display: none;
+  margin-top: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+#inicioAudio {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+}
