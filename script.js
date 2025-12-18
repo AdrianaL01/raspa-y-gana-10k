@@ -4,6 +4,16 @@ const premioImg = document.querySelector(".premio");
 const mensaje = document.getElementById("mensaje");
 const inicioAudio = document.getElementById("inicioAudio");
 
+function bloquearScroll() {
+  document.body.style.overflow = "hidden";
+  document.body.style.touchAction = "none";
+}
+
+function liberarScroll() {
+  document.body.style.overflow = "";
+  document.body.style.touchAction = "";
+}
+
 // 🔊 Sonidos
 const sonidoRaspar = new Audio("scratch.mp3");
 sonidoRaspar.loop = true;
@@ -110,13 +120,15 @@ function raspar(x, y) {
 // 🖱️ Mouse
 canvas.addEventListener("mousedown", () => {
   if (!audioHabilitado || terminado) return;
+  bloquearScroll();
   raspando = true;
   sonidoRaspar.currentTime = 0;
-  sonidoRaspar.play().catch(() => {});
+  sonidoRaspar.play();
 });
 
 canvas.addEventListener("mouseup", () => {
   raspando = false;
+  liberarScroll();
   sonidoRaspar.pause();
   sonidoRaspar.currentTime = 0;
 });
@@ -128,15 +140,18 @@ canvas.addEventListener("mousemove", e => {
 });
 
 // 📱 Touch
-canvas.addEventListener("touchstart", () => {
+canvas.addEventListener("touchstart", e => {
   if (!audioHabilitado || terminado) return;
+  e.preventDefault();
+  bloquearScroll();
   raspando = true;
   sonidoRaspar.currentTime = 0;
-  sonidoRaspar.play().catch(() => {});
-});
+  sonidoRaspar.play();
+}, { passive: false });
 
 canvas.addEventListener("touchend", () => {
   raspando = false;
+  liberarScroll();
   sonidoRaspar.pause();
   sonidoRaspar.currentTime = 0;
 });
@@ -168,4 +183,5 @@ function revelarPremio() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }, 400);
 }
+
 
