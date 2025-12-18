@@ -3,12 +3,12 @@ const nombreInput = document.getElementById("nombre");
 const codigoInput = document.getElementById("codigo");
 const error = document.getElementById("error");
 
-// Lista de códigos válidos (5K)
-let codigos5k = [
-  "5K-A7F3","5K-B92Q","5K-LM8X","5K-Q3RZ","5K-W4P7",
-  "5K-X9V2","5K-T5J8","5K-KL3P","5K-Z7N1","5K-V8M4",
-  "5K-R6C9","5K-F2B5","5K-P3D8","5K-N9H1","5K-S4Q6",
-  "5K-J8K2","5K-M5L7","5K-H2G9","5K-D7T3","5K-C9R6"
+// Lista de códigos válidos (10K)
+let codigos10k = [
+  "10K-A7F3","10K-B92Q","10K-LM8X","10K-Q3RZ","10K-W4P7",
+  "10K-X9V2","10K-T5J8","10K-KL3P","10K-Z7N1","10K-V8M4",
+  "10K-R6C9","10K-F2B5","10K-P3D8","10K-N9H1","10K-S4Q6",
+  "10K-J8K2","10K-M5L7","10K-H2G9","10K-D7T3","10K-C9R6"
 ];
 
 // Si quieres, puedes guardar en localStorage para bloquear reingresos
@@ -42,6 +42,6 @@ form.addEventListener("submit", e => {
   // Guardar nombre también si quieres
   localStorage.setItem("nombreUsuario", nombre);
 
-  // Redirigir a raspa-5k.html
-  window.location.href = "raspa-5k.html";
+  // Redirigir a raspa-10k.html
+  window.location.href = "raspa-10k.html";
 });
