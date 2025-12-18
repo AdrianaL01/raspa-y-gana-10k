@@ -48,10 +48,22 @@ const premios10kInicial = [
   ...Array(14).fill({ nombre: "nada", imagen: "bono00.jpg" })
 ];
 
+// =====================================
+// 🔐 Premio ligado al código (determinístico)
+function premioPorCodigo(codigo) {
+  let hash = 0;
+  for (let i = 0; i < codigo.length; i++) {
+    hash = codigo.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % premios10kInicial.length;
+  return premios10kInicial[index];
+}
 
+// 👉 ESTE reemplaza el Math.random()
+const premioAsignado = premioPorCodigo(codigo);
 // Elegir premio aleatorio (una sola vez)
-const indexPremio = Math.floor(Math.random() * premios10kInicial.length);
-const premioAsignado = premios10kInicial[indexPremio];
+//const indexPremio = Math.floor(Math.random() * premios10kInicial.length);
+//const premioAsignado = premios10kInicial[indexPremio];
 premioImg.src = premioAsignado.imagen;
 premioImg.style.visibility = "hidden";
 
@@ -162,6 +174,7 @@ function revelarPremio(){
 
   setTimeout(()=>{ ctx.clearRect(0,0,canvas.width,canvas.height); },400);
 }
+
 
 
 
