@@ -25,7 +25,7 @@ form.addEventListener("submit", e => {
     return;
   }
 
-  if (!codigos5k.includes(codigo)) {
+  if (!codigos10k.includes(codigo)) {
     error.textContent = "Código inválido";
     return;
   }
