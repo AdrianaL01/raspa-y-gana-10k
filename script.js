@@ -53,8 +53,6 @@ premioImg.style.visibility = "hidden";
 // 🔓 Desbloqueo de audio (ROBUSTO)
 // ===============================
 function desbloquearAudio() {
-  if (audioHabilitado) return;
-
   audioHabilitado = true;
   inicioAudio.style.display = "none";
 
@@ -63,10 +61,9 @@ function desbloquearAudio() {
       sonidoRaspar.pause();
       sonidoRaspar.currentTime = 0;
     })
-    .catch(() => {
-      // Aunque falle el audio, el juego sigue
-    });
+    .catch(() => {});
 }
+
 
 inicioAudio.addEventListener("click", desbloquearAudio);
 inicioAudio.addEventListener("touchstart", desbloquearAudio);
@@ -171,3 +168,4 @@ function revelarPremio() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }, 400);
 }
+
