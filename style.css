@@ -10,30 +10,29 @@ h2 {
 
 .contenedor {
   position: relative;
-  width: 95vw;        /* 95% del ancho del celular */
-  max-width: 420px;  /* límite en computador */
+  width: 95vw;
+  max-width: 420px;
   margin: auto;
 }
 
-
+/* Imagen del premio */
 .premio {
   width: 100%;
   display: block;
+  visibility: hidden; /* 🔒 OCULTO AL CARGAR */
 }
 
+/* Canvas raspable */
 canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: auto;
 }
 
-#mensaje {
-  display: none;
-  margin-top: 15px;
-  font-size: 16px;
-  color: #333;
-}
-
+/* Botón de inicio */
 #inicioAudio {
   position: absolute;
   inset: 0;
@@ -45,4 +44,23 @@ canvas {
   justify-content: center;
   z-index: 10;
   cursor: pointer;
+  text-align: center;
 }
+
+/* Mensaje final */
+#mensaje {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  z-index: 6;
+}
+
+
+
