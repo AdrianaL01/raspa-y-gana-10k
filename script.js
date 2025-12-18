@@ -25,27 +25,28 @@ let puntosRaspado = 0;
 let premioRevelado = false;
 
 // ===============================
-// 🎟️ PREMIOS BONO 5K
+// 🎟️ PREMIOS BONO 10K
 // ===============================
-// 🎟️ PREMIOS 10K (20 en total)
-const premios10k = [
+const premios10kInicial = [
   ...Array(6).fill({ nombre: "50%", imagen: "bono50.jpg" }),
   ...Array(14).fill({ nombre: "nada", imagen: "bono00.jpg" })
 ];
 
-
 // Cargar premios restantes
-let premiosDisponibles = JSON.parse(localStorage.getItem("premios_5k"));
-if (!premiosDisponibles) {
-  premiosDisponibles = [...premios5kInicial];
-  localStorage.setItem("premios_5k", JSON.stringify(premiosDisponibles));
+let premiosDisponibles = JSON.parse(localStorage.getItem("premios_10k"));
+if (!premios10k) {
+  premiosDisponibles = [...premios10kInicial];
+  localStorage.setItem("premios_10k", JSON.stringify(premios10k));
 }
 
 // Elegir premio aleatorio (una sola vez)
 function elegirPremio10k() {
   const index = Math.floor(Math.random() * premios10k.length);
   const premioElegido = premios10k[index];
-  premios10k.splice(index, 1); // elimina el premio
+
+  premios10k.splice(index, 1);
+  localStorage.setItem("premios_10k", JSON.stringify(premios10k));
+
   return premioElegido;
 }
 
@@ -178,4 +179,3 @@ function revelarPremio() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }, 400);
 }
-
