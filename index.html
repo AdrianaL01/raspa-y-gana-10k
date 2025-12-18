@@ -3,27 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raspa y Gana</title>
+  <title>Acceso Raspa y Gana 10K</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos específicos para esta página */
+    body {
+      background-color: #203A59;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: white;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      max-width: 300px;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #B61918;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
+  <h2>Ingresa tu nombre y código para acceder al Raspa y Gana</h2>
 
-  <h2>Raspa para descubrir tu bono</h2>
+  <form id="formulario" action="raspa-5k.html" method="get">
+    <label>
+      Nombre:<br>
+      <input type="text" name="nombre" required>
+    </label>
 
-  <div class="contenedor">
-    <img src="bono1.jpg" class="premio">
+    <label>
+      Código:<br>
+      <input type="text" name="codigo" required>
+    </label>
 
-    <div id="inicioAudio">
-  👉 Toca aquí para empezar
-</div>
-
-    <canvas id="canvas"></canvas>
-
-    <div id="mensaje">
-      🎉 ¡Este es tu bono! Guárdalo y enviame captura de tu premio 🎉
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <button type="submit">Ver bono</button>
+  </form>
 </body>
 </html>
+
